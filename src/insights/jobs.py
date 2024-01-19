@@ -11,7 +11,6 @@ class ProcessJobs:
             csv_reader = csv.DictReader(file)
             for line in csv_reader:
                 self.jobs_list.append(line)
-
         return self.jobs_list
 
     def get_unique_job_types(self) -> List[str]:
@@ -19,7 +18,6 @@ class ProcessJobs:
 
         for job in self.jobs_list:
             unique_job_types.add(job["job_type"])
-        
         return list(unique_job_types)
 
     def filter_by_multiple_criteria(self, jobs_list: List[Dict], filter_criteria: Dict) -> List[dict]:
@@ -28,6 +26,5 @@ class ProcessJobs:
         for job in jobs_list:
             if job["job_type"] == filter_criteria["job_type"] and job["industry"] == filter_criteria["industry"]:
                 filtered_jobs.append(job)
-
         return filtered_jobs
 
